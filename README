@@ -1,0 +1,13 @@
+Ruby classes to help consume the daylife API
+
+Author: Conor Hunt - conor.hunt AT gmail DOT com - 5/29/2007
+
+To get an API key and to learn more about the daylife API go to http://developer.daylife.com
+
+Example Usage:
+
+require 'daylife'
+a = Daylife::API.new('your api key','sharedsecret')
+r = a.execute('search','getRelatedArticles', :query => 'sam adams', :limit => 5)
+r.articles.each {|a| puts a.headline }
+puts r.articles[1].source.daylife_url
